@@ -29,7 +29,7 @@ The inspiration behind `Decentralized Journalists` stems from the pressing need 
 ## Technologies Used 💻
 
 ### Near Blockchain
-- We used the NEAR BOS to host our website and store our journals on the Blockhain.
+We used the NEAR BOS to host our website and store our journals on the Blockhain.
 ### Neurelo
 Neurelo enabled us to rapidly deploy a database and API endpoints, allowing us to focus more on ensuring the blockchain functions properly.
 
