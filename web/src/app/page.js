@@ -3,11 +3,14 @@ import { IoIosSearch } from 'react-icons/io';
 import { ImSpinner9 } from 'react-icons/im';
 import { RxCross1 } from 'react-icons/rx';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import NewArticle from '@/components/newArticle';
 import Hero from '@/components/hero';
 import ArticlePreview from '@/components/articlePreview';
 import CustomHr from '@/components/customHr';
+
+import { ArticleContract } from '@/config';
+import { NearContext } from '@/context';
 
 function getIdFromObject(obj) {
   let res = [];
@@ -17,7 +20,11 @@ function getIdFromObject(obj) {
   return res;
 }
 
+const CONTRACT = ArticleContract;
+
 export default function Home() {
+  const { signedAccountId, wallet } = useContext(NearContext);
+  
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState('');
@@ -156,7 +163,9 @@ export default function Home() {
           }
         </section>
       </main >
-      <NewArticle />
+      { signedAccountId &&
+        <NewArticle />
+      }
     </>
   );
 }

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link'
 
 function toTitleCase(str) {
     return str.toLowerCase().replace(/(?:^|\s)\w/g, function (match) {
@@ -6,10 +7,11 @@ function toTitleCase(str) {
     });
 }
 
-export default function ArticlePreview({article}) {
+export default function ArticlePreview({ article }) {
     return (
-        <div
+        <Link
             className='flex flex-col w-3/4 md:w-2/3 mx-auto border-b-2 border-gray-300 px-4 py-2 justify-center ease-in-out duration-300 hover:bg-gray-950 hover:text-white hover:scale-105 hover:rounded-sm'
+            href={`/article/${article.id}`}
         >
             <div className='flex flex-row justify-between items-center'>
                 <h4 className='my-1 text-2xl lg:text-4xl font-semibold py-2 pb-2'>{toTitleCase(article.title)}</h4>
@@ -19,10 +21,8 @@ export default function ArticlePreview({article}) {
                 </div>
             </div>
             <p className='my-1 text-xs lg:text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit ultricies tortor,
-                vel egestas mauris fringilla id. Fusce at elit ex. Vestibulum non eros fermentum, sagittis
-                dolor a, pharetra lacus...
+                {article.text.substring(0, 100) + '...'}
             </p>
-        </div>
+        </Link>
     )
 }
