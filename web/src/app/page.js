@@ -9,6 +9,7 @@ import Hero from '@/components/hero';
 import ArticlePreview from '@/components/articlePreview';
 import CustomHr from '@/components/customHr';
 
+import { ArticleContract } from '@/config';
 import { NearContext } from '@/context';
 
 function getIdFromObject(obj) {
@@ -18,6 +19,8 @@ function getIdFromObject(obj) {
   }
   return res;
 }
+
+const CONTRACT = ArticleContract;
 
 export default function Home() {
   const { signedAccountId, wallet } = useContext(NearContext);

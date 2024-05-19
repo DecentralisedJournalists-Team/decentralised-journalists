@@ -91,6 +91,7 @@ export class Wallet {
       finality: 'optimistic',
     });
     return JSON.parse(Buffer.from(res.result).toString());
+    // return res.result
   };
 
 
